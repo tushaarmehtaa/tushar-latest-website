@@ -6,9 +6,10 @@ import SlowTicker from './SlowTicker';
 import DynamicLong from './DynamicLong';
 import HoverPopup from './HoverPopup';
 import InfiniteTicker from './InfiniteTicker';
-import { FaEnvelope, FaTwitter, FaGithub, FaLinkedin, FaYoutube } from 'react-icons/fa';
-import AboutPage from './AboutPage';
-import PastPage from './PastPage';
+import { FaEnvelope, FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiSubstack } from 'react-icons/si';
+import StoryPage from './StoryPage';
+import WorkPage from './WorkPage';
 import NotesPage from './NotesPage';
 import ResumePage from './ResumePage';
 
@@ -55,13 +56,20 @@ const PersonalWebsite = () => {
     <Router>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <header className="flex flex-col sm:flex-row justify-between items-center mb-10">
-          <h1 className="text-3xl font-bold mb-4 sm:mb-0">Tushar Mehta</h1>
+          <Link to="/" className="text-3xl font-bold mb-4 sm:mb-0 hover:text-gray-700 transition-colors">
+            Tushar Mehta
+          </Link>
           <nav className="flex flex-wrap justify-center items-center">
-            <Link to="/about" className="mx-2 my-1 hover:underline">About</Link>
-            <Link to="/past" className="mx-2 my-1 hover:underline">Past</Link>
+            <Link to="/story" className="mx-2 my-1 hover:underline">Story</Link>
+            <Link to="/work" className="mx-2 my-1 hover:underline">Work</Link>
             <Link to="/notes" className="mx-2 my-1 hover:underline">Notes</Link>
             <Link to="/resume" className="mx-2 my-1 hover:underline">Resume</Link>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2 sm:mt-0 sm:ml-4 hover:bg-blue-600 transition-colors">Contact</button>
+            <a 
+              href="mailto:tusharmehta2001@icloud.com" 
+              className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2 sm:mt-0 sm:ml-4 hover:bg-blue-600 transition-colors"
+            >
+              Contact
+            </a>
           </nav>
         </header>
 
@@ -77,22 +85,15 @@ const PersonalWebsite = () => {
               outsideWorkImages={outsideWorkImages}
             />
           } />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/past" element={<PastPage />} />
+          <Route path="/story" element={<StoryPage />} />
+          <Route path="/work" element={<WorkPage />} />
           <Route path="/notes" element={<NotesPage />} />
           <Route path="/resume" element={<ResumePage />} />
         </Routes>
 
-        {/* Footer */}
         <footer className="mt-16 pt-8 border-t border-gray-200">
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-gray-600 mb-4 sm:mb-0">&copy; 2023 Tushar Mehta. All rights reserved.</p>
-            <div className="flex space-x-4">
-              <a href="mailto:tusharmehta2001@icloud.com" className="text-gray-600 hover:text-gray-900"><FaEnvelope size={20} /></a>
-              <a href="https://twitter.com/tushaarmehtaa" className="text-gray-600 hover:text-gray-900"><FaGithub size={20} /></a>
-              <a href="https://linkedin.com/in/tushaarmehtaa" className="text-gray-600 hover:text-gray-900"><FaLinkedin size={20} /></a>
-              <a href="https://youtube.com/tushaarmehtaa" className="text-gray-600 hover:text-gray-900"><FaYoutube size={20} /></a>
-            </div>
+          <div className="flex justify-center">
+            <p className="text-gray-600">&copy; 2023 Tushar Mehta. All rights reserved.</p>
           </div>
         </footer>
       </div>
@@ -216,23 +217,26 @@ const Home = ({
       </section>
 
       {/* Updated Connect with me section */}
-      <section>
+      <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4">Connect with me:</h2>
         <div className="flex justify-center space-x-6">
-          <a href="mailto:your.email@example.com" className="text-gray-600 hover:text-gray-900">
+          <a href="mailto:tusharmehta2001@icloud.com" className="text-gray-600 hover:text-gray-900">
             <FaEnvelope size={24} />
           </a>
           <a href="https://twitter.com/yourusername" className="text-gray-600 hover:text-gray-900">
             <FaTwitter size={24} />
           </a>
-          <a href="https://github.com/yourusername" className="text-gray-600 hover:text-gray-900">
-            <FaGithub size={24} />
-          </a>
           <a href="https://linkedin.com/in/yourusername" className="text-gray-600 hover:text-gray-900">
             <FaLinkedin size={24} />
           </a>
-          <a href="https://youtube.com/yourusername" className="text-gray-600 hover:text-gray-900">
-            <FaYoutube size={24} />
+          <Link to="/resume" className="text-gray-600 hover:text-gray-900">
+            Resume
+          </Link>
+          <a href="https://github.com/yourusername" className="text-gray-600 hover:text-gray-900">
+            <FaGithub size={24} />
+          </a>
+          <a href="https://yourusername.substack.com" className="text-gray-600 hover:text-gray-900">
+            <SiSubstack size={24} />
           </a>
         </div>
       </section>
