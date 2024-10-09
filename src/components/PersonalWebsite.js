@@ -22,6 +22,12 @@ import outsideWork3 from '../images/outside-work-3.jpg';
 import outsideWork4 from '../images/outside-work-4.jpg';
 import flexipleLogo from '../images/flexiple-logo.jpg';
 import ninteeLogo from '../images/nintee-logo.jpg';
+import owledLogo from '../images/owled-logo.jpg';
+import parasLogo from '../images/paras-logo.jpg';
+import rahulLogo from '../images/rahul-logo.jpg';
+import solanaLogo from '../images/solana-logo.jpg';
+import dezervLogo from '../images/dezerv-logo.jpg';
+import saumyaLogo from '../images/saumya-logo.jpg';
 // ... import other logos ...
 
 const PersonalWebsite = () => {
@@ -35,22 +41,27 @@ const PersonalWebsite = () => {
   const companies = [
     { name: 'Flexiple', logo: flexipleLogo },
     { name: 'Nintee', logo: ninteeLogo },
-    // ... add other companies with their logos
+    { name: 'OWLED', logo: owledLogo },
+    { name: 'Paras', logo: parasLogo },
+    { name: 'Rahul', logo: rahulLogo },
+    { name: 'Solana', logo: solanaLogo },
+    { name: 'Dezerv', logo: dezervLogo },
+    { name: 'Saumya', logo: saumyaLogo },
   ];
 
   const outsideWorkImages = [outsideWork1, outsideWork2, outsideWork3, outsideWork4];
 
   return (
     <Router>
-      <div className="max-w-5xl mx-auto px-12 py-6">
-        <header className="flex justify-between items-center mb-10">
-          <h1 className="text-3xl font-bold">Tushar Mehta</h1>
-          <nav className="flex items-center">
-            <Link to="/about" className="mx-2 hover:underline">About</Link>
-            <Link to="/past" className="mx-2 hover:underline">Past</Link>
-            <Link to="/notes" className="mx-2 hover:underline">Notes</Link>
-            <Link to="/resume" className="mx-2 hover:underline">Resume</Link>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-full ml-4 hover:bg-blue-600 transition-colors">Contact</button>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <header className="flex flex-col sm:flex-row justify-between items-center mb-10">
+          <h1 className="text-3xl font-bold mb-4 sm:mb-0">Tushar Mehta</h1>
+          <nav className="flex flex-wrap justify-center items-center">
+            <Link to="/about" className="mx-2 my-1 hover:underline">About</Link>
+            <Link to="/past" className="mx-2 my-1 hover:underline">Past</Link>
+            <Link to="/notes" className="mx-2 my-1 hover:underline">Notes</Link>
+            <Link to="/resume" className="mx-2 my-1 hover:underline">Resume</Link>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-full mt-2 sm:mt-0 sm:ml-4 hover:bg-blue-600 transition-colors">Contact</button>
           </nav>
         </header>
 
@@ -74,8 +85,8 @@ const PersonalWebsite = () => {
 
         {/* Footer */}
         <footer className="mt-16 pt-8 border-t border-gray-200">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600">&copy; 2023 Tushar Mehta. All rights reserved.</p>
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-gray-600 mb-4 sm:mb-0">&copy; 2023 Tushar Mehta. All rights reserved.</p>
             <div className="flex space-x-4">
               <a href="mailto:tusharmehta2001@icloud.com" className="text-gray-600 hover:text-gray-900"><FaEnvelope size={20} /></a>
               <a href="https://twitter.com/tushaarmehtaa" className="text-gray-600 hover:text-gray-900"><FaGithub size={20} /></a>
@@ -101,8 +112,10 @@ const Home = ({
   return (
     <main>
       <section className="mb-10">
-        <img src={tusharImage} alt="Tushar Mehta" className="w-full h-64 object-cover rounded-lg" />
-        <p className="text-2xl font-semibold mt-4 text-center">
+        <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+          <img src={tusharImage} alt="Tushar Mehta" className="object-cover w-full h-full" />
+        </div>
+        <p className="text-xl sm:text-2xl font-semibold mt-4 text-center">
           Your go-to guy for all things <strong>content.</strong> I can help you write <TickerAnimation words={contentTypes} />
         </p>
       </section>
@@ -132,14 +145,26 @@ const Home = ({
       {/* Recent Work Section */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Recent Work:</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <img src={buildersCentralImage} alt="Scriptwriting for Builders Central" className="w-full h-48 object-cover rounded-lg" />
-            <p className="mt-2">Scriptwriting for Builders Central</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="flex flex-col h-full">
+            <div className="relative h-0 pb-[56.25%] overflow-hidden rounded-lg">
+              <img 
+                src={buildersCentralImage} 
+                alt="Scriptwriting for Builders Central" 
+                className="absolute top-0 left-0 w-full h-full object-contain"
+              />
+            </div>
+            <p className="mt-2 text-center">Scriptwriting for Builders Central</p>
           </div>
-          <div>
-            <img src={karthikSridharan} alt="Personal Branding for Karthik Sridharan" className="w-full h-48 object-cover rounded-lg" />
-            <p className="mt-2">Personal Branding for Karthik Sridharan</p>
+          <div className="flex flex-col h-full">
+            <div className="relative h-0 pb-[56.25%] overflow-hidden rounded-lg">
+              <img 
+                src={karthikSridharan} 
+                alt="Personal Branding for Karthik Sridharan" 
+                className="absolute top-0 left-0 w-full h-full object-contain"
+              />
+            </div>
+            <p className="mt-2 text-center">Personal Branding for Karthik Sridharan</p>
           </div>
         </div>
       </section>
@@ -147,7 +172,7 @@ const Home = ({
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Apart from these, I've worked with these amazing folks at:</h2>
         <InfiniteTicker items={companies.map(company => (
-          <img src={company.logo} alt={company.name} className="h-12 mx-4" />
+          <img key={company.name} src={company.logo} alt={company.name} className="h-12 mx-4 inline-block" />
         ))} />
       </section>
 
@@ -171,18 +196,18 @@ const Home = ({
 
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Outside Work:</h2>
-        <div className="flex overflow-x-auto space-x-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
           {personalItems.map((item, index) => (
             <div 
               key={index} 
-              className="flex-shrink-0 w-64 h-64 relative group"
-              style={{
-                backgroundImage: `url(${outsideWorkImages[index % outsideWorkImages.length]})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
+              className="aspect-w-1 aspect-h-1 relative group"
             >
-              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <img 
+                src={outsideWorkImages[index % outsideWorkImages.length]} 
+                alt={item.text}
+                className="object-cover w-full h-full rounded-lg"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-lg">
                 <p className="text-white text-center p-4">{item.text}</p>
               </div>
             </div>
