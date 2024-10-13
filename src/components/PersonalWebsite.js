@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import TickerAnimation from './TickerAnimation';
 import ImageBox from './ImageBox';
@@ -12,6 +12,7 @@ import StoryPage from './StoryPage';
 import WorkPage from './WorkPage';
 import NotesPage from './NotesPage';
 import ResumePage from './ResumePage';
+import WorkPopup from './WorkPopup';
 
 // Import your images
 import tusharImage from '../images/tushar-mehta.jpg';
@@ -110,6 +111,21 @@ const Home = ({
   karthikSridharan,
   outsideWorkImages 
 }) => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  const recentProjects = [
+    {
+      title: "Scriptwriting for Builders Central",
+      image: buildersCentralImage,
+      description: "I joined them as a consultant in November 2023 - and it was around 3.5K followers. From there we did short form, videos, long form, giveaways, contests and crossed 100k in November 2024. Hell of a ride."
+    },
+    {
+      title: "Personal Branding for Karthik Sridharan",
+      image: karthikSridharan,
+      description: "I joined as a full-time employee working as a social media manager managing 3 pages at his company Flexiple - buildd, his own, and one of the other cofounders. His page went 3x from 33k, other cofounders doubled and buildd's growth to 15k from scratch. We did tweets, threads, mind maps, partnerships, launches and more!"
+    }
+  ];
+
   return (
     <main>
       <section className="mb-10">
@@ -147,28 +163,30 @@ const Home = ({
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Recent Work:</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="flex flex-col h-full">
-            <div className="relative h-0 pb-[56.25%] overflow-hidden rounded-lg">
-              <img 
-                src={buildersCentralImage} 
-                alt="Scriptwriting for Builders Central" 
-                className="absolute top-0 left-0 w-full h-full object-contain"
-              />
+          {recentProjects.map((project, index) => (
+            <div key={index} className="flex flex-col h-full">
+              <div 
+                className="relative cursor-pointer overflow-hidden rounded-lg"
+                onClick={() => setSelectedProject(project)}
+              >
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-auto object-contain"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <p className="text-white text-center p-4">{project.title}</p>
+                </div>
+              </div>
+              <p className="mt-2 text-center">{project.title}</p>
             </div>
-            <p className="mt-2 text-center">Scriptwriting for Builders Central</p>
-          </div>
-          <div className="flex flex-col h-full">
-            <div className="relative h-0 pb-[56.25%] overflow-hidden rounded-lg">
-              <img 
-                src={karthikSridharan} 
-                alt="Personal Branding for Karthik Sridharan" 
-                className="absolute top-0 left-0 w-full h-full object-contain"
-              />
-            </div>
-            <p className="mt-2 text-center">Personal Branding for Karthik Sridharan</p>
-          </div>
+          ))}
         </div>
       </section>
+
+      {selectedProject && (
+        <WorkPopup project={selectedProject} onClose={() => setSelectedProject(null)} />
+      )}
 
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Apart from these, I've worked with these amazing folks at:</h2>
