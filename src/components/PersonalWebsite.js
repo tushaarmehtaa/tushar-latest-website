@@ -13,6 +13,7 @@ import WorkPage from './WorkPage';
 import NotesPage from './NotesPage';
 import ResumePage from './ResumePage';
 import WorkPopup from './WorkPopup';
+import HowItAllStartedPost from './HowItAllStartedPost';
 
 // Import your images
 import tusharImage from '../images/tushar-mehta.jpg';
@@ -90,6 +91,7 @@ const PersonalWebsite = () => {
           <Route path="/work" element={<WorkPage />} />
           <Route path="/notes" element={<NotesPage />} />
           <Route path="/resume" element={<ResumePage />} />
+          <Route path="/notes/how-it-all-started" element={<HowItAllStartedPost />} />
         </Routes>
 
         <footer className="mt-16 pt-8 border-t border-gray-200">
