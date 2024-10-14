@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import TickerAnimation from './TickerAnimation';
 import ImageBox from './ImageBox';
@@ -36,10 +36,10 @@ import saumyaLogo from '../images/saumya-logo.jpg';
 const PersonalWebsite = () => {
   const contentTypes = ['blogs', 'scripts', 'tweets', 'posts', 'newsletters'];
   const personalItems = [
-    { text: 'Recently started running and completed a 5K Wipro run', image: '/images/outside-work1.jpg' },
-    { text: 'I cycle to work like Mike Ross, love that guy', image: '/images/outside-work2.jpg' },
+    { text: 'Ran a 5K fun run sometime and figured, this is not for me.', image: '/images/outside-work1.jpg' },
+    { text: 'Ever since I moved to Bangalore, this is how I travel.', image: '/images/outside-work2.jpg' },
     { text: 'On a coffee spree to check out all working cafes in luru', image: '/images/outside-work3.jpg' },
-    { text: 'Got a new monitor and have been happier ever since', image: '/images/outside-work4.jpg' }
+    { text: 'Spent too much on adding one more screen to handle :)', image: '/images/outside-work4.jpg' }
   ];
   const companies = [
     { name: 'Flexiple', logo: flexipleLogo },
@@ -114,17 +114,39 @@ const Home = ({
   outsideWorkImages 
 }) => {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [hoveredCategory, setHoveredCategory] = useState(null);
+  const [currentWord, setCurrentWord] = useState('posts');
+  const words = ['posts', 'tweets', 'scripts', 'blogs', 'newsletters.'];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentWord(prevWord => {
+        const currentIndex = words.indexOf(prevWord);
+        return words[(currentIndex + 1) % words.length];
+      });
+    }, 2000); // Change word every 2 seconds
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const categories = {
+    brands: ['Flexiple', 'Dezerv', 'Nintee', 'OWLED', 'Seekho', 'Segmind'],
+    individuals: ['Paras Chopra', 'Karthik Sridharan', 'Saumya Saxena', 'Rahul Bhadoriya'],
+    communities: ['Makerdock', 'FBI']
+  };
 
   const recentProjects = [
     {
       title: "Scriptwriting for Builders Central",
       image: buildersCentralImage,
-      description: "I joined them as a consultant in November 2023 - and it was around 3.5K followers. From there we did short form, videos, long form, giveaways, contests and crossed 100k in November 2024. Hell of a ride."
+      shortDescription: "Grew followers from 3.5K to 100K in one year",
+      fullDescription: "I joined them as a consultant in November 2023 - and it was around 3.5K followers. From there we did short form, videos, long form, giveaways, contests and crossed 100k in November 2024. Hell of a ride."
     },
     {
       title: "Personal Branding for Karthik Sridharan",
       image: karthikSridharan,
-      description: "I joined as a full-time employee working as a social media manager managing 3 pages at his company Flexiple - buildd, his own, and one of the other cofounders. His page went 3x from 33k, other cofounders doubled and buildd's growth to 15k from scratch. We did tweets, threads, mind maps, partnerships, launches and more!"
+      shortDescription: "Managed social media for 3 pages, significant growth across all",
+      fullDescription: "I joined as a full-time employee working as a social media manager managing 3 pages at his company Flexiple - buildd, his own, and one of the other cofounders. His page went 3x from 33k, other cofounders doubled and buildd's growth to 15k from scratch. We did tweets, threads, mind maps, partnerships, launches and more!"
     }
   ];
 
@@ -135,30 +157,62 @@ const Home = ({
           <img src={tusharImage} alt="Tushar Mehta" className="object-cover w-full h-full" />
         </div>
         <p className="text-xl sm:text-2xl font-semibold mt-4 text-center">
-          Your go-to guy for all things <strong>content.</strong> I can help you write <TickerAnimation words={contentTypes} />
+          Your go-to guy for all things <strong>content.</strong> I can help you write{' '}
+          <span className="inline-block w-20 text-blue-600">
+            {currentWord}
+          </span>
+          .
         </p>
       </section>
 
       {/* About Section */}
       <section id="about" className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">About</h2>
-        <p className="mb-4">
+        <p className="text-lg mb-4">
           Hi, I'm Tushar. I've been writing online for{' '}
-          <HoverPopup
-            trigger="brands"
-            content={<div>Nintee, Dezerv, Solana</div>}
-          />,{' '}
-          <HoverPopup
-            trigger="individuals"
-            content={<div>Saumya, Karthik, Rahul</div>}
-          />, and{' '}
-          <HoverPopup
-            trigger="communities"
-            content={<div>makerdock, FBI</div>}
-          />{' '}
-          for over 3 years now.
+          <span 
+            className="relative inline-block cursor-pointer text-blue-600"
+            onMouseEnter={() => setHoveredCategory('brands')}
+            onMouseLeave={() => setHoveredCategory(null)}
+          >
+            brands
+            {hoveredCategory === 'brands' && (
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
+                {categories.brands.join(', ')}
+              </span>
+            )}
+          </span>
+          ,{' '}
+          <span 
+            className="relative inline-block cursor-pointer text-blue-600"
+            onMouseEnter={() => setHoveredCategory('individuals')}
+            onMouseLeave={() => setHoveredCategory(null)}
+          >
+            individuals
+            {hoveredCategory === 'individuals' && (
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
+                {categories.individuals.join(', ')}
+              </span>
+            )}
+          </span>
+          , and{' '}
+          <span 
+            className="relative inline-block cursor-pointer text-blue-600"
+            onMouseEnter={() => setHoveredCategory('communities')}
+            onMouseLeave={() => setHoveredCategory(null)}
+          >
+            communities
+            {hoveredCategory === 'communities' && (
+              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
+                {categories.communities.join(', ')}
+              </span>
+            )}
+          </span>
+          {' '}for over 3 years now.
         </p>
-        <p>Started in early 2021 with OWLED media and now working with my own clients, I've come a <DynamicLong /> way.</p>
+        <p className="text-lg">
+          Started in early 2021 with OWLED media and now working with my own clients, I've come a loong way.
+        </p>
       </section>
 
       {/* Recent Work Section */}
@@ -200,19 +254,19 @@ const Home = ({
       {/* Currently Section */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Currently:</h2>
-        <p className="mb-2">I recently left my job and have been working on a few of my own ventures for some time:</p>
-        <ul className="list-disc pl-5 mt-2">
-          <li>Been working with Zoho for scriptwriting and have built their page to 100K from scratch</li>
-          <li>Recently started working with Ultrahuman, and hoping for the same trajectory</li>
-          <li>Have been dabbling with AI for efficient operations, trying to automate functions with two of my brilliant cofounders</li>
-          <li>Apart from that, being the techno-optimist I am, I'm working with FBI too - building out the community for them in India, Africa, and LatAm, onboarding the best of the best builders</li>
+        <p className="mb-4">I recently left my full-time job and have been doing all of these:</p>
+        <ul className="list-disc pl-5 space-y-2 mb-4">
+          <li>Writing scripts for Zoho Creator and built their Instagram page to 100K from scratch.</li>
+          <li>Built some AI agents for efficient operations, started automating marketing functions, and built a team for it.</li>
+          <li>Working with FBI - building a community in India with helpful content, onboarding the best of the best builders on Base.</li>
         </ul>
-      </section>
-
-      {/* Contact Section */}
-      <section className="mb-10">
-        <p className="mb-4">I'm always looking to work with brilliant cofounders and companies for writing content and building distribution.</p>
-        <button className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-600 transition-colors">Contact NOW</button>
+        <p className="mb-6">Not only that, I'm always looking to work with brilliant startup founders to write content and build distribution for them and their companies.</p>
+        <a 
+          href="mailto:tusharmehta2001@icloud.com" 
+          className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition-colors inline-block"
+        >
+          Contact NOW
+        </a>
       </section>
 
       <section className="mb-10">
