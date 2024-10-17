@@ -137,16 +137,22 @@ const Home = ({
 
   const recentProjects = [
     {
-      title: "Scriptwriting for Builders Central",
+      title: "Builders Central",
       image: buildersCentralImage,
       shortDescription: "Grew followers from 3.5K to 100K in one year",
-      fullDescription: "I joined them as a consultant in November 2023 - and it was around 3.5K followers. From there we did short form, videos, long form, giveaways, contests and crossed 100k in November 2024. Hell of a ride."
+      fullDescription: `I joined them as a consultant in November 2023. They had around 3.5K followers. Not much to write home about.
+        But we got to work. Short form content. Videos. Long form posts. Giveaways. Contests. You name it, we did it.
+        And guess what? By November 2024, we crossed 100k followers. That's right. 100 freakin' K.`
     },
     {
       title: "Personal Branding for Karthik Sridharan",
       image: karthikSridharan,
       shortDescription: "Managed social media for 3 pages, significant growth across all",
-      fullDescription: "I joined as a full-time employee working as a social media manager managing 3 pages at his company Flexiple - buildd, his own, and one of the other cofounders. His page went 3x from 33k, other cofounders doubled and buildd's growth to 15k from scratch. We did tweets, threads, mind maps, partnerships, launches and more!"
+      fullDescription: `I joined as a full-time employee. A social media manager. Managing 3 pages at Flexiple.
+        The founder's page. Another cofounder's page. And buildd's page. 
+        The founder's page went 3x. The other cofounder's page doubled. And buildd's page? We grew it to 15k. 
+        We did it all. Tweets. Threads. Mind maps. Partnerships. Launches. You name it, we crushed it.
+        It wasn't easy. But it was fun. And it was rewarding. Seeing those numbers climb.`
     }
   ];
 
@@ -168,51 +174,64 @@ const Home = ({
       {/* About Section */}
       <section id="about" className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">About</h2>
-        <p className="text-lg mb-4">
-          Hi, I'm Tushar. I've been writing online for{' '}
-          <span 
-            className="relative inline-block cursor-pointer text-blue-600"
-            onMouseEnter={() => setHoveredCategory('brands')}
-            onMouseLeave={() => setHoveredCategory(null)}
-          >
-            brands
-            {hoveredCategory === 'brands' && (
-              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
-                {categories.brands.join(', ')}
-              </span>
-            )}
-          </span>
-          ,{' '}
-          <span 
-            className="relative inline-block cursor-pointer text-blue-600"
-            onMouseEnter={() => setHoveredCategory('individuals')}
-            onMouseLeave={() => setHoveredCategory(null)}
-          >
-            individuals
-            {hoveredCategory === 'individuals' && (
-              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
-                {categories.individuals.join(', ')}
-              </span>
-            )}
-          </span>
-          , and{' '}
-          <span 
-            className="relative inline-block cursor-pointer text-blue-600"
-            onMouseEnter={() => setHoveredCategory('communities')}
-            onMouseLeave={() => setHoveredCategory(null)}
-          >
-            communities
-            {hoveredCategory === 'communities' && (
-              <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
-                {categories.communities.join(', ')}
-              </span>
-            )}
-          </span>
-          {' '}for over 3 years now.
-        </p>
-        <p className="text-lg">
-          Started in early 2021 with OWLED media and now working with my own clients, I've come a loong way.
-        </p>
+        <div className="space-y-4">
+          <p className="text-lg">Hi, I'm Tushar. I write things online.</p>
+          
+          <p className="text-lg">
+            For{' '}
+            <span 
+              className="relative inline-block cursor-pointer text-blue-600"
+              onMouseEnter={() => setHoveredCategory('brands')}
+              onMouseLeave={() => setHoveredCategory(null)}
+            >
+              brands
+              {hoveredCategory === 'brands' && (
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
+                  {categories.brands.join(', ')}
+                </span>
+              )}
+            </span>
+            ,{' '}
+            <span 
+              className="relative inline-block cursor-pointer text-blue-600"
+              onMouseEnter={() => setHoveredCategory('individuals')}
+              onMouseLeave={() => setHoveredCategory(null)}
+            >
+              individuals
+              {hoveredCategory === 'individuals' && (
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
+                  {categories.individuals.join(', ')}
+                </span>
+              )}
+            </span>
+            , and{' '}
+            <span 
+              className="relative inline-block cursor-pointer text-blue-600"
+              onMouseEnter={() => setHoveredCategory('communities')}
+              onMouseLeave={() => setHoveredCategory(null)}
+            >
+              communities
+              {hoveredCategory === 'communities' && (
+                <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm rounded py-1 px-2 mb-2 whitespace-nowrap">
+                  {categories.communities.join(', ')}
+                </span>
+              )}
+            </span>
+            .
+          </p>
+          
+          <p className="text-lg">Started in early 2021 with OWLED media. Now, I work with my own clients.</p>
+          
+          <p className="text-lg">It's been a journey. A long one. Three years long, to be exact.</p>
+          
+          <p className="text-lg">I've learned a lot along the way. Like how to type without looking at the keyboard. And how to make words sound good together.</p>
+          
+          <p className="text-lg">But the most important thing I've learned? People like stories. And I like telling them.</p>
+          
+          <p className="text-lg">So, if you need someone to tell your story, I'm your guy. I'll make sure it's a good one. And I'll make sure people listen.</p>
+          
+          <p className="text-lg">Because that's what I do. I write things online. And I make sure people read them.</p>
+        </div>
       </section>
 
       {/* Recent Work Section */}
@@ -254,19 +273,30 @@ const Home = ({
       {/* Currently Section */}
       <section className="mb-10">
         <h2 className="text-2xl font-semibold mb-4">Currently:</h2>
-        <p className="mb-4">I recently left my full-time job and have been doing all of these:</p>
-        <ul className="list-disc pl-5 space-y-2 mb-4">
-          <li>Writing scripts for Zoho Creator and built their Instagram page to 100K from scratch.</li>
-          <li>Built some AI agents for efficient operations, started automating marketing functions, and built a team for it.</li>
-          <li>Working with FBI - building a community in India with helpful content, onboarding the best of the best builders on Base.</li>
-        </ul>
-        <p className="mb-6">Not only that, I'm always looking to work with brilliant startup founders to write content and build distribution for them and their companies.</p>
-        <a 
-          href="mailto:tusharmehta2001@icloud.com" 
-          className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition-colors inline-block"
-        >
-          Contact NOW
-        </a>
+        <div className="space-y-4">
+          <p className="text-lg">Recently, I quit my full-time job. Decided to try something new:</p>
+          
+          <ul className="list-disc pl-5 space-y-2">
+            <li className="text-lg">Writing scripts for Zoho Creator. Built their Instagram page from scratch. To 100K followers. Not bad, right?</li>
+            <li className="text-lg">Creating some AI agents. Starting with automating marketing functions. Making life easier, one bot at a time.</li>
+            <li className="text-lg">Working with FBI. No, not that FBI. A community in India. Building it with helpful content. Onboarding the best builders on Base Ecosystem.</li>
+          </ul>
+          
+          <p className="text-lg">And that's not all. I'm always on the lookout for brilliant startup founders. To write content for them. And build distribution. For them and their companies.</p>
+          
+          <p className="text-lg">It's a lot. But I love it. The opportunity to make a difference. To help bring amazing ideas to life.</p>
+          
+          <p className="text-lg">So, if you're a startup founder. With a brilliant idea. And you need someone to help you tell your story. I'm your guy.</p>
+          
+          <div className="mt-6">
+            <a 
+              href="mailto:tusharmehta2001@icloud.com" 
+              className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition-colors inline-block"
+            >
+              Let's build something incredible together
+            </a>
+          </div>
+        </div>
       </section>
 
       <section className="mb-10">

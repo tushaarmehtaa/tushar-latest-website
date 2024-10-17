@@ -8,7 +8,7 @@ const NotesPage = () => {
       id: 'how-it-all-started',
       title: 'How it all started',
       excerpt: 'My journey from a tier 3 private non-tech degree to earning *enough* as an above-average writer and marketer living in Bangalore.',
-      date: 'May 15, 2023', // Update with the actual date
+      date: 'Sept 15, 2024', // Update with the actual date
     },
     // Add more posts here as needed
   ];

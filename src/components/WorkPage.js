@@ -12,14 +12,20 @@ const WorkPage = () => {
       title: "Builders Central",
       image: buildersCentralImage,
       shortDescription: "Grew followers from 3.5K to 100K in one year",
-      fullDescription: "I joined them as a consultant in November 2023 - and it was around 3.5K followers. From there we did short form, videos, long form, giveaways, contests and crossed 100k in November 2024. Hell of a ride."
+      fullDescription: `I joined them as a consultant in November 2023. They had around 3.5K followers. Not much to write home about.
+        But we got to work. Short form content. Videos. Long form posts. Giveaways. Contests. You name it, we did it.
+        And guess what? By November 2024, we crossed 100k followers. That's right. 100 freakin' K.`
     },
     {
       id: 2,
-      title: "Karthik Sridharan",
+      title: "Personal Branding for Karthik Sridharan",
       image: karthikSridharanImage,
       shortDescription: "Managed social media for 3 pages, significant growth across all",
-      fullDescription: "I joined as a full-time employee working as a social media manager managing 3 pages at his company Flexiple - buildd, his own, and one of the other cofounders. His page went 3x from 33k, other cofounders doubled and buildd's growth to 15k from scratch. We did tweets, threads, mind maps, partnerships, launches and more!"
+      fullDescription: `I joined as a full-time employee. A social media manager. Managing 3 pages at Flexiple.
+        The founder's page. Another cofounder's page. And buildd's page. 
+        The founder's page went 3x. The other cofounder's page doubled. And buildd's page? We grew it to 15k. 
+        We did it all. Tweets. Threads. Mind maps. Partnerships. Launches. You name it, we crushed it.
+        It wasn't easy. But it was fun. And it was rewarding. Seeing those numbers climb.`
     },
     // Add more projects here...
   ];

@@ -4,48 +4,31 @@ const StoryPage = () => {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-6">My Story</h1>
-      
-      <section className="mb-8">
-        <p className="text-lg mb-4">
-          I'm Tushar, a multi-genre writer with good experience in writing short form pieces.
-        </p>
-      </section>
+      <p className="text-lg mb-6">I'm Tushar, a writer who's good at writing short, fun pieces.</p>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">The Beginning</h2>
-        <p className="mb-4">
-          My journey as a marketer and writer started early when I joined college where I worked for free for almost 6 months for a couple of companies.
-        </p>
-        <p className="mb-4">
-          I didn't make any money there, but it led to a lot of gigs while I was still in college - part-time collaborations, NGO work, internships, and finally a generalist role for $50 a month. Sounds small now, but it was enough when I was a 20-year-old kid.
-        </p>
-      </section>
+      <h2 className="text-2xl font-semibold mb-4">The Beginning</h2>
+      <p className="mb-4">I started my journey as a marketer and writer really early. Like, on the first day of college early. I knew right away that normal job hunts and college placements weren't for me.</p>
+      <p className="mb-4">So, what did I do? I looked for work. Free, paid, paid in exposure whatever - I just wanted to start somewhere.</p>
+      <p className="mb-4">For six months, I worked for free. No money, but a lot of learning. And guess what? It worked out. </p>
+      <p className="mb-6">Finally, I got a job that paid a little over $50 a month. Not a lot now, but for a 20-year-old, it was a big deal.</p>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Where I Am Now</h2>
-        <p className="mb-4">
-          That was over 3 years ago. Now I build distribution for founders, startups and communities by writing content across channels.
-        </p>
-      </section>
+      <h2 className="text-2xl font-semibold mb-4">Where I Am Now</h2>
+      <p className="mb-6">Now, three years later, I'm here. Working with smart people and ambitious startups. Making content that helps them grow.</p>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Beyond Writing</h2>
-        <p className="mb-4">
-          Not only that, but with my new found hobby of playing with codebases - I can be found playing with code almost every time, building little tools like tweet generators, email writers, script writers, and working on my own services business where we (me and my two co-founders) work with brands to build tools for them.
-        </p>
-      </section>
+      <h2 className="text-2xl font-semibold mb-4">Beyond Writing</h2>
+      <p className="mb-4">But that's not all. I've got a new hobby: playing with code. You can find me making little tools like tweet makers, email writers, and script creators.</p>
+      <p className="mb-6">And get this - I'm working on my own thing with two friends. We're helping brands make custom tools. Pretty neat, huh?</p>
 
-      <section className="mt-12">
-        <p className="text-lg font-semibold">
-          If my work resonates with you, let's talk!
-        </p>
+      <h2 className="text-xl font-semibold mb-4">If my story sounds good to you...</h2>
+      <div className="mb-4">
         <a 
-          href="mailto:tusharmehta2001@icloud.com"
-          className="inline-block mt-4 bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors"
+          href="mailto:tusharmehta2001@icloud.com" 
+          className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition-colors inline-block"
         >
-          Get in Touch
+          Let's chat
         </a>
-      </section>
+      </div>
+      <p className="text-lg italic">I think we'll get along great.</p>
     </div>
   );
 };
