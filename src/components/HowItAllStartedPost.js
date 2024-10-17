@@ -6,9 +6,7 @@ const HowItAllStartedPost = () => {
       <h1 className="text-3xl font-bold mb-6">How it all started</h1>
       
       <p className="mb-4">This week I spent most of my time writing about something very close to my heart. It's my journey from a tier 3 private non-tech degree to earning *enough* as an above-average writer and marketer living in Bangalore.</p>
-      
-      {/* You might want to add an actual image here */}
-      <div className="mb-4">[Image Placeholder]</div>
+
       
       <p className="mb-4">It all started when I enrolled at my university - not knowing how bad it was going to be. I enrolled without filling out any forms, knowing that "Anyway, I need to do something of my own, and a degree doesn't really matter"</p>
       
